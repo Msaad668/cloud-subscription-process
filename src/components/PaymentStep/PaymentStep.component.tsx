@@ -1,19 +1,34 @@
 import { Button, TextField } from "@material-ui/core";
 import { GlobalContext } from "../../store";
 import "./PaymentStep.component.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const PaymentStep = () => {
+  const [creditNumbrError, setCreditNumbrError] = useState(false);
+
   const { activeStep, setActiveStep, subscriptionForm, setSubscriptionForm } =
     useContext(GlobalContext);
 
   const handleChange = (event: any) => {
     const name = event.target.name;
     const value = event.target.value;
+    if (name === "creditCardNumber") {
+      value
+        ? setCreditNumbrError(!isValidNumber(value))
+        : setCreditNumbrError(false);
+    }
     const obj: any = {};
     obj[name] = value;
     setSubscriptionForm({ ...subscriptionForm, ...obj });
+  };
+
+  const isValidNumber = (value: string) => {
+    const regex = /^[0-9\s\-+]*$/;
+    if (regex.test(value)) {
+      return true;
+    }
+    return false;
   };
 
   return (
@@ -29,6 +44,10 @@ const PaymentStep = () => {
           name="creditCardNumber"
           onChange={handleChange}
           value={subscriptionForm.creditCardNumber}
+          inputProps={{
+            maxLength: 18,
+          }}
+          error={creditNumbrError ? true : false}
         />
 
         <TextField
@@ -50,6 +69,9 @@ const PaymentStep = () => {
           name="creditCardSecCode"
           onChange={handleChange}
           value={subscriptionForm.creditCardSecCode}
+          inputProps={{
+            maxLength: 6,
+          }}
         />
       </div>
       <div className="navigation-buttons d-flex flex-row justify-content-end">

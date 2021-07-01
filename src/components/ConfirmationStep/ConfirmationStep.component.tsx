@@ -11,9 +11,12 @@ import DefaultInputView from "../default-input-view/default-input-view.component
 import { SubscriptionService } from "../../services/subscription.service";
 import { SubscriptionForm } from "../../types/subscription-form";
 import { showToastMsg } from "../../helpers";
+import { emailRegex } from "../../statics/validators";
 
 const ConfirmationStep = () => {
   const [agreeToTerms, setAgreetoTerms] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+
   const {
     activeStep,
     setActiveStep,
@@ -27,6 +30,9 @@ const ConfirmationStep = () => {
   const handleChange = (event: any) => {
     const name = event.target.name;
     const value = event.target.value;
+    if (name === "email") {
+      value ? setEmailError(!emailRegex.test(value)) : setEmailError(false);
+    }
     const obj: any = {};
     obj[name] = value;
     setSubscriptionForm({ ...subscriptionForm, ...obj });
@@ -101,6 +107,7 @@ const ConfirmationStep = () => {
           name="email"
           onChange={handleChange}
           value={subscriptionForm.email}
+          error={emailError ? true : false}
         />
 
         <FormControlLabel
