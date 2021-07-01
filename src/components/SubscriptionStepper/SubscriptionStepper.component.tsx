@@ -8,7 +8,7 @@ import { GlobalContext } from "../../store";
 export default function SubscriptionStepper() {
   const { activeStep, setActiveStep } = useContext(GlobalContext);
 
-  const steps = ["order", "ordeder", "orsdfjkh"];
+  const steps = ["Subscription", "Payment", "Confirmation"];
 
   const handleStep = (index: number) => {
     if (index < activeStep && activeStep < 3) {
@@ -18,23 +18,18 @@ export default function SubscriptionStepper() {
 
   return (
     <div className="case-stepper">
-      <div className="d-flex justify-content-center align-items-center">
-        <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label: string, index: number) => (
-            <Step key={index} className="case-step">
-              <StepButton
-                completed={false}
-                onClick={handleStep.bind(null, index)}
-                disabled={
-                  index >= activeStep || activeStep === steps.length - 1
-                }
-              >
-                {label}
-              </StepButton>
-            </Step>
-          ))}
-        </Stepper>
-      </div>
+      <Stepper activeStep={activeStep} alternativeLabel>
+        {steps.map((label: string, index: number) => (
+          <Step key={index} className="case-step">
+            <StepButton
+              onClick={handleStep.bind(null, index)}
+              disabled={index >= activeStep || activeStep === steps.length - 1}
+            >
+              {label}
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
     </div>
   );
 }

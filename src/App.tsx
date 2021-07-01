@@ -1,11 +1,12 @@
 import SubscriptionPage from "./pages/SubscriptionPage";
+import { GlobalProvider } from "./store";
 import "./styles/styles.scss";
 
 function App() {
   return (
-    <div className="App">
+    <GlobalProvider>
       <SubscriptionPage />
-    </div>
+    </GlobalProvider>
   );
 }
 

@@ -7,6 +7,18 @@ export default (state: any, action: any) => {
         activeStep: action.payload.activeStep,
       };
 
+    case "SET_SUBSCRIPTION_PLANS":
+      return {
+        ...state,
+        subscriptionPlans: action.payload.subscriptionPlans,
+      };
+
+    case "SET_LOADING":
+      return {
+        ...state,
+        loading: action.payload.loading,
+      };
+
     default:
       return state;
   }
