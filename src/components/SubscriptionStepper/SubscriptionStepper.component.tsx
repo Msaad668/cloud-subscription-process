@@ -4,11 +4,10 @@ import Step from "@material-ui/core/Step";
 import "./SubscriptionStepper.component.scoped.scss";
 import { StepButton } from "@material-ui/core";
 import { GlobalContext } from "../../store";
+import { steps } from "../../statics/steps";
 
 export default function SubscriptionStepper() {
   const { activeStep, setActiveStep } = useContext(GlobalContext);
-
-  const steps = ["Subscription", "Payment", "Confirmation"];
 
   const handleStep = (index: number) => {
     if (index < activeStep && activeStep < 3) {

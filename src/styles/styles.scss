@@ -1,4 +1,51 @@
 body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+}
+
+.navigation-buttons {
+  position: absolute;
+  bottom: -50px;
+  right: 50px;
+
+  .btn-prev {
+    margin-right: 20px;
   }
+}
+
+.main-header {
+  text-align: center;
+  font-size: 36px;
+  color: #116149;
+  margin: 10px 0;
+}
+
+.sub-chip-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  padding: 5px;
+  top: 110px;
+  left: 0;
+  height: 35px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 140px;
+  background-color: #04aa6d;
+}
+.sub-chip-subscription {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  padding: 5px;
+  top: 160px;
+  left: 0;
+  height: 35px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 140px;
+  background-color: #04aa6d;
+}

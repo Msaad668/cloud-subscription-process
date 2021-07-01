@@ -1,0 +1,13 @@
+.payment-step {
+  position: relative;
+  min-height: 500px;
+
+
+
+  .inputs-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

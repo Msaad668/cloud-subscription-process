@@ -12,7 +12,7 @@ export class SubscriptionService {
     }
   };
 
-  public activate = async (data: any): Promise<any> => {
+  public subscribe = async (data: any): Promise<any> => {
     try {
       const res = await axios.post("https://httpbin.org/post", data);
       return res.data;
