@@ -29,12 +29,11 @@ const SubscriptionPage = () => {
   return (
     <div className="container">
       <SubscriptionStepper />
-      {/* <div className="price">totalPrice: ${totalPrice}</div> */}
+      <div className="sub-chip-price">{`Total: $${totalPrice}`}</div>
+      <div className="sub-chip-subscription">{`${subscriptionForm.duration} months`}</div>
       {activeStep === 0 && <SelectionStep />}
       {activeStep === 1 && <PaymentStep />}
       {activeStep === 2 && <ConfirmationStep />}
-      <div className="sub-chip-price">{`Total price: $${totalPrice}`}</div>;
-      <div className="sub-chip-subscription">{`type: ${subscriptionForm.duration} months`}</div>
     </div>
   );
 };

@@ -21,6 +21,7 @@ const PaymentStep = () => {
       <div className="main-header">Enter credit card credentials.</div>
       <div className="inputs-wrapper">
         <TextField
+          style={{ minWidth: "300px" }}
           required
           className="w-25 mb-5"
           id="credit-card-number"
@@ -31,6 +32,7 @@ const PaymentStep = () => {
         />
 
         <TextField
+          style={{ minWidth: "300px" }}
           required
           className="w-25 mb-5"
           id="credit-card-number"
@@ -40,6 +42,7 @@ const PaymentStep = () => {
           value={subscriptionForm.creditCardExpData}
         />
         <TextField
+          style={{ minWidth: "300px" }}
           required
           className="w-25 mb-5"
           id="credit-card-number"

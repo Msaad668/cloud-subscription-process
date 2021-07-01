@@ -91,8 +91,9 @@ const ConfirmationStep = () => {
           />
         </div>
       </div>
-      <div className="d-flex flex-column align-items-start justify-content-start w-100">
+      <div className="d-flex flex-column align-items-start justify-content-start mb-3 w-100">
         <TextField
+          style={{ minWidth: "300px" }}
           required
           className="w-25 mb-4"
           id="credit-card-number"

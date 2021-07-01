@@ -85,7 +85,7 @@ const SelectionStep = () => {
           <CircularProgress />
         </div>
       ) : (
-        <div className="d-flex flex-row align-items-center justify-content-center mb-5 w-100">
+        <div className="subscription">
           {subscriptionPlans.map((plan: any, index: number) => (
             <div
               key={index}
@@ -96,9 +96,9 @@ const SelectionStep = () => {
               } subscription-wrapper `}
               onClick={handleDurationChange.bind(null, plan)}
             >
-              <div className="subscription">
-                <p>{plan.duration_months} months</p>
-                <p>${plan.price_usd_per_gb}/Gb</p>
+              <div className="subscription-details">
+                <div className="sub-detail">{plan.duration_months} months</div>
+                <div className="sub-detail">${plan.price_usd_per_gb}/Gb</div>
 
                 <div className="subscription-option">
                   <img src="iconmonstr-check-mark-1.svg" alt="check mark" />
@@ -120,8 +120,8 @@ const SelectionStep = () => {
         </div>
       )}
 
-      <div className="d-flex flex-row align-items-start justify-content-around w-100">
-        <FormControl className="mb-4 mr-5 w-25">
+      <div className="inputs-wrap w-100">
+        <FormControl className="mb-4 mr-5 w-25" style={{ minWidth: "300px" }}>
           <InputLabel id="amount-of-gbs">Amount of Gigabytes/month</InputLabel>
           <Select
             labelId="amount-of-gbs"
