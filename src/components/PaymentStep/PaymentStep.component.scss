@@ -1,8 +1,23 @@
+@import "../../styles/mixins";
+
 .payment-step {
   position: relative;
   min-height: 500px;
 
+  .payment-wrap {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    justify-content: space-around;
 
+    @include respond(tablet) {
+      flex-flow: column-reverse;
+    }
+
+    img {
+      height: 250px;
+    }
+  }
 
   .inputs-wrapper {
     display: flex;

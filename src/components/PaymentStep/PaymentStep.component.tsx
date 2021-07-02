@@ -34,46 +34,50 @@ const PaymentStep: React.FC = () => {
   return (
     <div className="payment-step">
       <div className="main-header">Enter credit card credentials.</div>
-      <div className="inputs-wrapper">
-        <TextField
-          style={{ minWidth: "300px" }}
-          required
-          className="w-25 mb-5"
-          id="credit-card-number"
-          label="credit card number"
-          name="creditCardNumber"
-          onChange={handleChange}
-          value={subscriptionForm.creditCardNumber}
-          inputProps={{
-            maxLength: 18,
-          }}
-          error={creditNumbrError ? true : false}
-        />
+      <div className="payment-wrap">
+        <div className="inputs-wrapper">
+          <TextField
+            style={{ minWidth: "300px" }}
+            required
+            className="w-25 mb-5"
+            id="credit-card-number"
+            label="credit card number"
+            name="creditCardNumber"
+            onChange={handleChange}
+            value={subscriptionForm.creditCardNumber}
+            inputProps={{
+              maxLength: 18,
+            }}
+            error={creditNumbrError ? true : false}
+          />
 
-        <TextField
-          style={{ minWidth: "300px" }}
-          required
-          className="w-25 mb-5"
-          id="credit-card-number"
-          label="credit card exp date"
-          name="creditCardExpData"
-          onChange={handleChange}
-          value={subscriptionForm.creditCardExpData}
-        />
-        <TextField
-          style={{ minWidth: "300px" }}
-          required
-          className="w-25 mb-5"
-          id="credit-card-number"
-          label="credit card security code"
-          name="creditCardSecCode"
-          onChange={handleChange}
-          value={subscriptionForm.creditCardSecCode}
-          inputProps={{
-            maxLength: 6,
-          }}
-        />
+          <TextField
+            style={{ minWidth: "300px" }}
+            required
+            className="w-25 mb-5"
+            id="credit-card-number"
+            label="credit card exp date"
+            name="creditCardExpData"
+            onChange={handleChange}
+            value={subscriptionForm.creditCardExpData}
+          />
+          <TextField
+            style={{ minWidth: "300px" }}
+            required
+            className="w-25 mb-5"
+            id="credit-card-number"
+            label="credit card security code"
+            name="creditCardSecCode"
+            onChange={handleChange}
+            value={subscriptionForm.creditCardSecCode}
+            inputProps={{
+              maxLength: 6,
+            }}
+          />
+        </div>
+        <img src="CREDIT-CARD.png" alt="credit card" />
       </div>
+
       <div className="navigation-buttons d-flex flex-row justify-content-end">
         <Button
           className="btn-secondary-theme btn-prev"
