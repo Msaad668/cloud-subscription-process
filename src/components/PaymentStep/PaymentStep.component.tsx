@@ -4,8 +4,8 @@ import "./PaymentStep.component.scss";
 import { useContext, useState } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-const PaymentStep = () => {
-  const [creditNumbrError, setCreditNumbrError] = useState(false);
+const PaymentStep: React.FC = () => {
+  const [creditNumbrError, setCreditNumbrError] = useState<boolean>(false);
 
   const { activeStep, setActiveStep, subscriptionForm, setSubscriptionForm } =
     useContext(GlobalContext);
@@ -93,6 +93,7 @@ const PaymentStep = () => {
             setActiveStep(activeStep + 1);
           }}
           disabled={
+            creditNumbrError ||
             subscriptionForm.creditCardNumber.length === 0 ||
             subscriptionForm.creditCardExpData.length === 0 ||
             subscriptionForm.creditCardSecCode.length === 0

@@ -1,5 +1,7 @@
+import { ContextState } from "../../types/context-state";
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state: any, action: any) => {
+export default (state: ContextState, action: any) => {
   switch (action.type) {
     case "SET_ACTIVE_STEP":
       return {
@@ -16,7 +18,7 @@ export default (state: any, action: any) => {
     case "SET_SUBSCRIPTION_FORM":
       return {
         ...state,
-        subscriptionForm: action.payload.data,
+        subscriptionForm: action.payload.subscriptionForm,
       };
 
     case "SET_LOADING":

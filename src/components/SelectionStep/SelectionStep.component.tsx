@@ -12,8 +12,9 @@ import "./SelectionStep.component.scss";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { useContext } from "react";
 import { GlobalContext } from "../../store";
+import { SubscriptionPlan } from "../../types/subscription-plan";
 
-const SelectionStep = () => {
+const SelectionStep: React.FC = () => {
   const {
     activeStep,
     setActiveStep,
@@ -28,7 +29,7 @@ const SelectionStep = () => {
     duration: number,
     amountOfGBs: number,
     pricePerGb: number,
-    upfrontPayment: Boolean
+    upfrontPayment: boolean
   ) => {
     const price =
       duration * amountOfGBs * pricePerGb * (upfrontPayment === true ? 0.9 : 1);
@@ -62,7 +63,7 @@ const SelectionStep = () => {
     setSubscriptionForm({ ...subscriptionForm, ...obj });
   };
 
-  const handleDurationChange = (plan: any) => {
+  const handleDurationChange = (plan: SubscriptionPlan) => {
     const { price_usd_per_gb, duration_months } = plan;
     handlePriceChange(
       duration_months,
@@ -140,7 +141,7 @@ const SelectionStep = () => {
           <FormControlLabel
             control={
               <Switch
-                checked={subscriptionForm.upfrontPayment}
+                checked={subscriptionForm.upfrontPayment ? true : false}
                 onChange={handleChange}
                 name="upfrontPayment"
                 color="primary"

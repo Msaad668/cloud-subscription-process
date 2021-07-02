@@ -6,7 +6,7 @@ import { StepButton } from "@material-ui/core";
 import { GlobalContext } from "../../store";
 import { steps } from "../../statics/steps";
 
-export default function SubscriptionStepper() {
+const SubscriptionStepper: React.FC = () => {
   const { activeStep, setActiveStep } = useContext(GlobalContext);
 
   const handleStep = (index: number) => {
@@ -22,7 +22,7 @@ export default function SubscriptionStepper() {
           <Step key={index} className="case-step">
             <StepButton
               onClick={handleStep.bind(null, index)}
-              disabled={index >= activeStep || activeStep === steps.length - 1}
+              disabled={index >= activeStep}
             >
               {label}
             </StepButton>
@@ -31,4 +31,6 @@ export default function SubscriptionStepper() {
       </Stepper>
     </div>
   );
-}
+};
+
+export default SubscriptionStepper;

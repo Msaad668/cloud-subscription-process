@@ -1,16 +1,18 @@
 import React, { createContext, useReducer } from "react";
+import { ContextState } from "../../types/context-state";
 import { SubscriptionForm } from "../../types/subscription-form";
+import { SubscriptionPlan } from "../../types/subscription-plan";
 import GlobalReducer from "../reducers/global.reducer";
 
-const initialState: any = {
+const initialState: ContextState = {
   activeStep: 0,
-  subscriptionPlans: {},
+  subscriptionPlans: [],
   loading: true,
   subscriptionForm: new SubscriptionForm(),
   totalPrice: 120,
 };
 
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext<any>({});
 export const GlobalProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(GlobalReducer, initialState);
 
@@ -21,17 +23,17 @@ export const GlobalProvider = ({ children }: any) => {
     });
   }
 
-  function setSubscriptionPlans(subscriptionPlans: any) {
+  function setSubscriptionPlans(subscriptionPlans: SubscriptionPlan[]) {
     dispatch({
       type: "SET_SUBSCRIPTION_PLANS",
       payload: { subscriptionPlans },
     });
   }
 
-  function setSubscriptionForm(data: SubscriptionForm) {
+  function setSubscriptionForm(subscriptionForm: SubscriptionForm) {
     dispatch({
       type: "SET_SUBSCRIPTION_FORM",
-      payload: { data },
+      payload: { subscriptionForm },
     });
   }
 

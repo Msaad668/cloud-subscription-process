@@ -1,7 +1,9 @@
 import React from "react";
 import "./default-input-view.component.scoped.scss";
 
-export default function DefaultInputView(props: any) {
+const DefaultInputView: React.FC<{ label: string; value: string }> = (
+  props
+) => {
   const { label, value } = props;
 
   return (
@@ -10,4 +12,5 @@ export default function DefaultInputView(props: any) {
       <div className="default-input-value">{value}</div>
     </div>
   );
-}
+};
+export default DefaultInputView;

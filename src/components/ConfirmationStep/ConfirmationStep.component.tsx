@@ -13,9 +13,9 @@ import { SubscriptionForm } from "../../types/subscription-form";
 import { showToastMsg } from "../../helpers";
 import { emailRegex } from "../../statics/validators";
 
-const ConfirmationStep = () => {
-  const [agreeToTerms, setAgreetoTerms] = useState(false);
-  const [emailError, setEmailError] = useState(false);
+const ConfirmationStep: React.FC = () => {
+  const [agreeToTerms, setAgreetoTerms] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<boolean>(false);
 
   const {
     activeStep,
@@ -138,7 +138,9 @@ const ConfirmationStep = () => {
           variant="contained"
           color="primary"
           onClick={handleConfirmClick}
-          disabled={!agreeToTerms || subscriptionForm.email.length === 0}
+          disabled={
+            !agreeToTerms || subscriptionForm.email.length === 0 || emailError
+          }
         >
           confirm
         </Button>

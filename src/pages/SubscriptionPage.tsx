@@ -6,7 +6,7 @@ import PaymentStep from "../components/PaymentStep/PaymentStep.component";
 import ConfirmationStep from "../components/ConfirmationStep/ConfirmationStep.component";
 import { SubscriptionService } from "../services/subscription.service";
 
-const SubscriptionPage = () => {
+const SubscriptionPage: React.FC = () => {
   const {
     activeStep,
     setSubscriptionPlans,
